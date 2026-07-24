@@ -1,18 +1,17 @@
-var audio = document.getElementById('audio');
+﻿var audio = document.getElementById("audio");
 audio.play();
-var lis = document.querySelectorAll('ul.jj li');
-lis.forEach(li => {
-    li.onclick = function() {
-        audio.src = './res/' + this.getAttribute('m') + '.mp3';
+
+document.querySelectorAll(".sound-btn[data-sound]").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+        audio.src = "./res/" + this.getAttribute("data-sound") + ".mp3";
         audio.play();
-        console.log(this.innerHTML)
-    }
+    });
 });
-document.querySelector('.s1').onclick = function() {
+
+document.getElementById("restartBtn").addEventListener("click", function() {
     audio.currentTime = 0;
-    console.log('重开')
-};
-document.querySelector('.s2').onclick = function() {
+});
+
+document.getElementById("stopBtn").addEventListener("click", function() {
     audio.pause();
-    console.log('停止')
-}
+});
